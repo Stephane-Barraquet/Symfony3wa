@@ -1,0 +1,63 @@
+{% extends "troiswaBackBundle::layout-admin.html.twig" %}
+
+{% block h1 %}
+    Product
+{% endblock h1 %}
+
+
+{% block title %}
+    Product
+{% endblock title %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">
+        <i class="fa fa-birthday-cake"></i> Product
+    </li>
+{% endblock breadcrumb %}
+
+
+{%block content %}
+
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Tous les produits <a href"{{ path('troiswa_back_addProduct') }}" class="btn btn-lg btn-info">Ajouter un produit</a> </h2>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titre</th>
+                        <th>Prix</th>
+                        <th>State</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+{% for key,value in products %}
+                    <tr>
+                        <td>{{ value.id }}</td>
+                        <td>{{ value.title }}</td>
+                        <td>{{ value.price }}</td>
+                        <td>{% if value.active==0 %} <a href="{{ path('troiswa_back_changeStateProduct',{idprod:value.id,action:'1'}) }}" class="btn btn-success">ON </a> {% else %} <a href="{{ path('troiswa_back_changeStateProduct',{idprod:value.id,action:'0'}) }}" class="btn btn-warning">OFF</a>{% endif %}</td>
+                        <td>
+                            <a href="{{ path('troiswa_back_infoProduct',{idprod:value.id}) }}" class="btn btn btn-primary">Voir</a>
+                            <a href="{{ path('troiswa_back_editProduct',{idprod:value.id}) }}" class="btn btn btn-success">Editer</a>
+                            <a href="{{ path('troiswa_back_deleteProduct',{idprod:value.id}) }}" class="btn btn btn-danger" {# onclick="return confirm('Etes-vous sur ?')" #} >Supprimer</a>
+                        </td>
+                    </tr>
+{% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{%endblock content %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset("assets/js/remove.js") }}"> </script>
+{% endblock js %}

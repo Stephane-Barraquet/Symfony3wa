@@ -1,0 +1,12 @@
+{% extends "troiswaBackBundle::layoutTest2.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock  %}
+
+{% block title %}
+    templating -{{ parent() }}
+{% endblock %}
+
+{% block h1 "Bienvenue sur mon site" %}
+

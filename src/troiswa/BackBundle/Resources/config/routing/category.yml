@@ -1,0 +1,26 @@
+
+troiswa_back_viewCategory:
+          path: /
+          defaults:   {_controller:troiswaBackBundle:Category:viewCategory}
+
+troiswa_back_viewOneCategory:
+          path: /{idcat}
+          defaults:   {_controller:troiswaBackBundle:Category:viewOneCategory}
+          requirements:
+                 idcat: \d+
+
+troiswa_back_addCategory:
+          path: /add
+          defaults: {_controller:troiswaBackBundle:Category:addCategory}
+
+troiswa_back_updateCategory:
+          path: /update/{idcat}
+          defaults: {_controller:troiswaBackBundle:Category:updateCategory}
+          requirements:
+                idcat: \d+
+
+troiswa_back_deleteCategory:
+          path: /delete/{idcat}
+          defaults: {_controller:troiswaBackBundle:Category:deleteCategory}
+          requirements:
+                 idcat: \d+

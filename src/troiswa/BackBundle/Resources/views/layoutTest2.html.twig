@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title> {% block title %}Mon super site{% endblock %}</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("assets/css/style.css",absolute=true) }}">
+    {% endblock %}
+</head>
+<body>
+
+<h1>{% block h1 %}Titre de la page{% endblock %}</h1>
+
+
+<p>{% block p %}du super contenu{% endblock %}</p>
+
+
+
+{% set menu = "mon super menu" %}
+{% include "troiswaBackBundle:Statics:navigation.html.twig" with {"menu":menu} only %}
+    <img src="{{ asset("assets/img/homeworld.jpg",absolute=true) }}"
+    <script rel="script" src="{{ asset("assets/js/app.js",absolute=true) }}"
+</body>
+</html>

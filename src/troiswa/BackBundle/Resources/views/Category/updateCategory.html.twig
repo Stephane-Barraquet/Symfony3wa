@@ -1,0 +1,40 @@
+{% extends "troiswaBackBundle::layout-admin.html.twig" %}
+
+{% block title %}
+    Edit Category
+{% endblock title %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">
+        <i class="fa fa-plus"></i> Edit Category
+    </li>
+{% endblock breadcrumb %}
+
+{% block content %}
+    {{  form_start(formUpdate) }}
+
+    {{  form_errors(formUpdate) }}
+
+    <div class="form-group">
+        {{ form_label(formUpdate.title,"Nom de la categorie") }}
+        {{ form_errors(formUpdate.title) }}
+        {{ form_widget(formUpdate.title,{id:"title",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formUpdate.description,"Descriptif") }}
+        {{ form_errors(formUpdate.description) }}
+        {{ form_widget(formUpdate.description,{id:"description",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formUpdate.position,"Position") }}
+        {{ form_errors(formUpdate.position) }}
+        {{ form_widget(formUpdate.position,{id:"position",attr:{class:"form-control"}}) }}
+    </div>
+
+    <div>
+        {{ form_widget(formUpdate.send,{label:"Envoyer", id:"send",attr:{class:"btn btn-primary"}}) }}
+    </div>
+
+    {{ form_end(formUpdate) }}
+{% endblock content %}

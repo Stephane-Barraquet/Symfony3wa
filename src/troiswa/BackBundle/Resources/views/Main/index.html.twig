@@ -1,0 +1,24 @@
+{% extends "troiswaBackBundle::layout-admin.html.twig" %}
+
+
+{% block h1 %}
+    Administration
+{% endblock h1 %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <!-- Morris Charts CSS -->
+    <link href="{{ asset('assets/css/plugins/morris.css')}}" rel="stylesheet">
+
+{% endblock stylesheets %}
+{% block breadcrumb %}
+    {{ parent() }}
+{% endblock breadcrumb %}
+
+{% block js %}
+    {{ parent() }}
+<!-- Morris Charts JavaScript -->
+<script src="{{ asset('assets/js/plugins/morris/raphael.min.js')}}"></script>
+<script src="{{ asset('assets/js/plugins/morris/morris.min.js')}}"></script>
+<script src="{{ asset('assets/js/plugins/morris/morris-data.js')}}"></script>
+{% endblock js %}

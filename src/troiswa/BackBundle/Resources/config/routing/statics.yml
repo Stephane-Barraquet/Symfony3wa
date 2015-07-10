@@ -1,0 +1,23 @@
+troiswa_back_cgv:
+    path: /cgv
+    defaults:  {_controller:troiswaBackBundle:Statics:cgv}
+
+troiswa_back_cgu:
+    path: /cgu
+    defaults:  {_controller:troiswaBackBundle:Statics:cgu}
+
+troiswa_back_training:
+    path: /training/{string}
+    defaults: {_controller:troiswaBackBundle:Statics:training,string:"test"}
+    requirements:
+          string: "^toto$"
+                 #"[a-zA-Z]+"
+                 #"[a-z]{4}
+
+troiswa_back_layoutTest:
+    path: /heritage-template
+    defaults:   {_controller:troiswaBackBundle:Statics:heritageTemplate}
+
+troiswa_back_layoutTest2:
+    path: /test-template
+    defaults:   {_controller:troiswaBackBundle:Statics:testTemplate}

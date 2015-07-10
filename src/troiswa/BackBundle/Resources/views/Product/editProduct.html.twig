@@ -1,0 +1,58 @@
+{% extends "troiswaBackBundle::layout-admin.html.twig" %}
+
+{% block title %}
+    Edit
+{% endblock title %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">
+        <i class="fa fa-plus"></i> Edit
+    </li>
+{% endblock breadcrumb %}
+
+{% block content %}
+    {{  form_start(formUpdate) }}
+
+    {{  form_errors(formUpdate) }}
+
+    <div class="form-group">
+        {{ form_label(formUpdate.title,"Nom du produit") }}
+        {{ form_errors(formUpdate.title) }}
+        {{ form_widget(formUpdate.title,{id:"title",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formUpdate.description,"Descriptif") }}
+        {{ form_errors(formUpdate.description) }}
+        {{ form_widget(formUpdate.description,{id:"description",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formUpdate.price,"Prix") }}
+        {{ form_errors(formUpdate.price) }}
+        {{ form_widget(formUpdate.price,{id:"price",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formUpdate.quantity,"Quantité") }}
+        {{ form_errors(formUpdate.quantity) }}
+        {{ form_widget(formUpdate.quantity,{id:"quantité",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formUpdate.active,"Actif") }}
+        <label class="radio-inline">
+            {{ form_widget(formUpdate.active.0) }}
+            {{ form_errors(formUpdate.active.0) }}
+            {{ formUpdate.active.children.0.vars.label }}
+        </label>
+        <label class="radio-inline">
+            {{ form_widget(formUpdate.active.1) }}
+            {{ form_errors(formUpdate.active.1) }}
+            {{ formUpdate.active.children.1.vars.label }}
+        </label>
+
+    </div>
+    <div>
+        {{ form_widget(formUpdate.send,{label:"Envoyer", id:"send",attr:{class:"btn btn-primary"}}) }}
+    </div>
+
+    {{ form_end(formUpdate) }}
+{% endblock content %}

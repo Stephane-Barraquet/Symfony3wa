@@ -1,0 +1,29 @@
+{% extends "troiswaBackBundle::layout-admin.html.twig" %}
+
+{% block h1 %}
+    Info Product
+{% endblock h1 %}
+
+
+{% block title %}
+    Info Product
+{% endblock title %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">
+        <i class="fa fa-info-circle"></i> Info Product
+    </li>
+{% endblock breadcrumb %}
+
+
+{%block content %}
+    <h2>{{ oneProduct.title }}</h2>
+    <p>{{ oneProduct.description }}</p>
+    <p>{{ oneProduct.price }}</p>
+    <p>{{ oneProduct.quantity }}</p>
+    <p>{{ oneProduct.active }}</p>
+    {% dump(oneProduct.active) %}
+
+{%endblock content %}
+

@@ -1,0 +1,93 @@
+{% extends "troiswaBackBundle::layout-admin.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/plugins/jquery-ui.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/css/plugins/jquery-ui.structure.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/css/plugins/jquery-ui.theme.min.css')}}" rel="stylesheet">
+{% endblock stylesheets %}
+
+
+{% block h1 %}
+    Feedback
+{% endblock h1 %}
+
+{# surcharge au sein d'uyn template#}
+{# form_theme formContact _self #}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">
+        <i class="fa fa-envelope-o"></i> Feedback
+    </li>
+{% endblock breadcrumb %}
+
+{% block title %}
+    feedback
+{% endblock title %}
+
+
+
+{% block content %}
+
+
+    {{  form_start(formContact) }}
+
+    <div class="form-group">
+        {{ form_label(formContact.firstname,"Prénom") }}
+        {{ form_errors(formContact.firstname) }}
+        {{ form_widget(formContact.firstname,{id:"firstname",attr:{class:"form-control",for:"prénom"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formContact.lastname,"Nom") }}
+        {{ form_errors(formContact.lastname) }}
+        {{ form_widget(formContact.lastname,{id:"lastname",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        <label class="radio-inline">
+                {{ form_widget(formContact.subject.0) }}
+                {{ formContact.subject.children.0.vars.label }}
+        </label>
+        <label class="radio-inline">
+            {{ form_widget(formContact.subject.1) }}
+            {{ formContact.subject.children.1.vars.label }}
+        </label>
+        <label class="radio-inline">
+            {{ form_widget(formContact.subject.2) }}
+            {{ formContact.subject.children.2.vars.label }}
+        </label>
+    </div>
+    <div class="form-group">
+        {{ form_label(formContact.email) }}
+        {{ form_errors(formContact.email) }}
+        {{ form_widget(formContact.email,{id:"email",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formContact.url) }}
+        {{ form_errors(formContact.url) }}
+        {{ form_widget(formContact.url,{id:"url",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formContact.description) }}
+        {{ form_errors(formContact.description) }}
+        {{ form_widget(formContact.description,{id:"Description",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formContact.date_bug,"date") }}
+        {{ form_errors(formContact.date_bug) }}
+        {{ form_widget(formContact.date_bug,{id:"datepicker",attr:{class:"form-control"}}) }}
+    </div>
+    <div>
+        {{ form_widget(formContact.send,{label:"Envoyer", id:"send",attr:{class:"btn btn-primary"}}) }}
+    </div>
+
+    {{ form_end(formContact) }}
+
+
+{% endblock content %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/plugins/datepicker/jquery-ui.min.js')}}"></script>
+    <script src="{{ asset('assets/js/datepicker.js')}}"></script>
+{% endblock js %}

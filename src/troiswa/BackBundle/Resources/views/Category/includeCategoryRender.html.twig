@@ -1,0 +1,5 @@
+{% for key,value in categories %}
+<li>
+    <a href="{{ path('troiswa_back_viewOneCategory',{idcat:value.id}) }}"><i class="fa fa-envelope-o"></i>{{ value.title  }}</a>
+</li>
+{% endfor %}

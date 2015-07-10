@@ -1,0 +1,58 @@
+{% extends "troiswaBackBundle::layout-admin.html.twig" %}
+
+{% block title %}
+   Add
+{% endblock title %}
+
+{% block breadcrumb %}
+{{ parent() }}
+<li class="active">
+    <i class="fa fa-plus"></i> Add
+</li>
+{% endblock breadcrumb %}
+
+{% block content %}
+    {{  form_start(formProduct) }}
+
+    {{  form_errors(formProduct) }}
+
+    <div class="form-group">
+        {{ form_label(formProduct.title,"Nom du produit") }}
+        {{ form_errors(formProduct.title) }}
+        {{ form_widget(formProduct.title,{id:"title",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formProduct.description,"Descriptif") }}
+        {{ form_errors(formProduct.description) }}
+        {{ form_widget(formProduct.description,{id:"description",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formProduct.price,"Prix") }}
+        {{ form_errors(formProduct.price) }}
+        {{ form_widget(formProduct.price,{id:"price",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formProduct.quantity,"Quantité") }}
+        {{ form_errors(formProduct.quantity) }}
+        {{ form_widget(formProduct.quantity,{id:"quantité",attr:{class:"form-control"}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(formProduct.active,"Actif") }}
+        <label class="radio-inline">
+            {{ form_widget(formProduct.active.0) }}
+            {{ form_errors(formProduct.active.0) }}
+            {{ formProduct.active.children.0.vars.label }}
+        </label>
+        <label class="radio-inline">
+            {{ form_widget(formProduct.active.1) }}
+            {{ form_errors(formProduct.active.1) }}
+            {{ formProduct.active.children.1.vars.label }}
+        </label>
+        
+    </div>
+    <div>
+        {{ form_widget(formProduct.send,{label:"Envoyer", id:"send",attr:{class:"btn btn-primary"}}) }}
+    </div>
+
+    {{ form_end(formProduct) }}
+{% endblock content %}

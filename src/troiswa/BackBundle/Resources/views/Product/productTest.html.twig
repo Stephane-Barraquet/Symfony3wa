@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    {% for key,value in products %}
+        {%  if loop.first %}
+            <p>Ceci est le premier article</p>
+
+            <p>{{ value.description }}</p>
+            <p>{{ value.date_created |date("d/m/Y") }}</p>
+        {% else %}
+            <p>{{ value.title | default('Mon quatrième produit') }}</p>
+            <p>{{ value.description }}</p>
+            <p>{{ value.date_created |date("d/m/Y") }}</p>
+
+        {% endif %}
+    {% endfor %}
+
+
+    <p>nb de produit: {{ products | length }}</p>
+
+
+    {% for key,value in products |reverse %}
+    <p>{{ value.title | default('Mon quatrième produit')}}</p>
+    <p>{{ value.description }}</p>
+    {% endfor %}
+
+
+    {% for key,value in products %}
+        {%  if loop.first or loop.last %}
+
+        {% else %}
+            <p>{{ value.title | default('Mon quatrième produit') }}</p>
+
+            <p>{{ value.description }}</p>
+
+        {% endif %}
+    {% endfor %}
+
+    {% for key,value in products |slice(1,2)%}
+
+
+
+            <p>{{ value.title | default('Mon quatrième produit') |upper}}</p>
+
+            <p>{{ value.description |upper}}</p>
+
+
+    {% endfor %}
+
+
+
+{{ dump(products) }}
+
+</body>
+</html>

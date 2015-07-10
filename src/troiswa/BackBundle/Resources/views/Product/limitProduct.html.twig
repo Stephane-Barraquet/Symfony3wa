@@ -1,0 +1,66 @@
+{% extends "troiswaBackBundle::layout-admin.html.twig" %}
+
+{% block h1 %}
+    Limit Product
+{% endblock h1 %}
+
+
+{% block title %}
+    Limit Product
+{% endblock title %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li class="active">
+        <i class="fa fa-birthday-cake"></i> Limit Product
+    </li>
+{% endblock breadcrumb %}
+
+
+{%block content %}
+
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Tous les produits</h2>
+
+            <div class="table-responsive">
+                <form method="GET">
+                <label for="limit">Limite</label>
+                <input type="text" name="limit" value="">
+                <button type="submit" >Send</button>
+                </form>
+                <a href=""></a>
+                <a href=""></a>
+                <a href=""></a>
+                <a href=""></a>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titre</th>
+                        <th>Description</th>
+                        <th>Prix</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for key,value in products %}
+                        <tr>
+                            <td>{{ value.id }}</td>
+                            <td>{{ value.title }}</td>
+                            <td>{{ value.description }}</td>
+                            <td>{{ value.price }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{%endblock content %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="{{ asset("assets/js/remove.js") }}"> </script>
+{% endblock js %}

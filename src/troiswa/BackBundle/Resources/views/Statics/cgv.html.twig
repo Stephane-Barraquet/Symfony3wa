@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>3WA/cgv</title>
+</head>
+<body>
+    <h1>CGV</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus accusantium ad aspernatur cum eius ipsa iure labore laudantium modi molestias mollitia nostrum numquam pariatur, qui, quidem vitae. Numquam, voluptas?</p>
+    <a href="{{ path('troiswa_back_equipes') }}">lien equipe</a>
+    <p>Mon nom est: {{ firstname | capitalize ~" "~ lastname | upper}}  </p>
+    <p>Mon age est: {{  age }} ans</p>
+    <p>{% set name= firstname ~" "~ lastname %}</p>
+    <p>{{ dump(name) }}</p>
+
+    <p>
+        {% if  age >18 %}
+        Vous etes majeur
+        {% else %}
+        Vous etes mineur
+        {% endif %}
+    </p>
+
+    <p>
+        {% if article is defined %}
+        {{ article }}
+        {% endif %}
+    </p>
+
+</body>
+</html>
